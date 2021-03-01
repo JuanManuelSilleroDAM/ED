@@ -1,0 +1,46 @@
+@startuml
+    class Tienda
+    Tienda : -string: cif
+    Tienda : string: ubicacion
+    Tienda : string: nombre
+    Tienda : MetodoEjemplo()
+
+    Tienda *-- Equipo
+
+    abstract class Equipo
+    Equipo : string: marca
+    Equipo : string: numeroSerie
+
+    class Esquis
+    Esquis : int: numeroSerie
+
+    class Gafas
+    Gafas : string: modelo
+
+    class Bastones
+    Bastones : string: modelo
+
+    Equipo <|-- Esquis
+    Equipo <|-- Gafas
+    Equipo <|-- Bastones
+
+    class Marca
+    Marca : string: proveedor
+    Marca : string: servTecnico
+
+    Esquis <-- Marca
+
+    class Cliente
+    Cliente : string: dni
+    Cliente : string: nombre
+    Cliente : int: telefono
+
+    class Alquiler
+    Alquiler : DateTime: fechaAlquiler
+    Alquiler : DateTime: fechaDevolucion
+
+    Cliente <-- Equipo 
+    (Cliente, Equipo) .. Alquiler
+   
+   
+@enduml
